@@ -550,6 +550,7 @@ async function getSharedLocations() {
         const userobjarr = parseLocationData(locationdata);
         return userobjarr;
       } catch (e) {
+        adapter.log.info('Error in location data parsing: ' + e);
         adapter.log.error('Could not parse location data. Probably authentication error. Please check cookie.');
         return false;
       }
