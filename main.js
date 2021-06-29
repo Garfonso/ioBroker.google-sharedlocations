@@ -195,6 +195,11 @@ async function syncConfig() {
 }
 
 async function poll(onlyCookie) {
+  if (!google_cookie_header) {
+    adapter.log.warn('No cookie, yet, can not poll.');
+    return;
+  }
+
   try {
     const state = await adapter.getStateAsync('info.augmented_cookie');
     if (state && state.val) {
