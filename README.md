@@ -58,7 +58,7 @@ If this project helped you to reduce developing time, you can give me a cup of c
 	### __WORK IN PROGRESS__
 	npm install @alcalzone/release-script
 -->
-### **WORK IN PROGRESS**
+### 2.1.4 (2021-06-29)
 - fix location data parsing. (Garfonso)
 
 ### 2.1.3 (2021-05-31)

@@ -1,12 +1,24 @@
 {
     "common": {
         "name": "google-sharedlocations",
-        "version": "2.1.3",
+        "version": "2.1.4",
         "license": "MIT",
         "authors": [
             "Christian Vorholt <chvorholt@gmail.com>"
         ],
         "news": {
+            "2.1.4": {
+                "en": "fix location data parsing. (Garfonso)",
+                "de": "Standortdaten-Parsing beheben. (Garfonso)",
+                "ru": "исправить парсинг данных о местоположении. (Гарфонсо)",
+                "pt": "corrigir a análise de dados de localização. (Garfonso)",
+                "nl": "locatiegegevens parseren. (Garfonso)",
+                "fr": "corriger l'analyse des données de localisation. (Garfonso)",
+                "it": "correggere l'analisi dei dati sulla posizione. (Garfonso)",
+                "es": "corregir el análisis de datos de ubicación. (Garfonso)",
+                "pl": "naprawić parsowanie danych lokalizacji. (Garfons)",
+                "zh-cn": "修复位置数据解析。 （加方索）"
+            },
             "2.1.3": {
                 "en": "update cookie info also on position updates (Garfonso)",
                 "de": "Cookie-Informationen auch zu Positionsaktualisierungen aktualisieren (Garfonso)",
