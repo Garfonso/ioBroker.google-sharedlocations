@@ -175,15 +175,8 @@
         },
         "title": "Google shared locations",
         "titleLang": {
-            "en": "An ioBroker adapter for retrieving locations from Google shared locations",
-            "de": "Ein ioBroker-Adapter zum Abrufen von freigegebenen Google-Standorten",
-            "ru": "Адаптер ioBroker для поиска местоположений из общих мест Google",
-            "pt": "Um adaptador ioBroker para recuperar locais de locais compartilhados do Google",
-            "nl": "Een ioBroker-adapter voor het ophalen van locaties van gedeelde Google-locaties",
-            "fr": "Un adaptateur ioBroker pour récupérer des emplacements à partir d'emplacements partagés Google",
-            "it": "Un adattatore ioBroker per il recupero di posizioni da posizioni condivise di Google",
-            "es": "Un adaptador ioBroker para recuperar ubicaciones de ubicaciones compartidas de Google",
-            "pl": "Adapter ioBroker do pobierania lokalizacji z udostępnianych lokalizacji Google"
+            "en": "Google shared locations",
+            "de": "Google Geteilte Standorte"
         },
         "desc": {
             "en": "Locations of family members or friends can be retrieved from Google shared locations if they share their location.",

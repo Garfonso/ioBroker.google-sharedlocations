@@ -28,7 +28,7 @@
     "test:unit": "mocha test/unit --exit",
     "test:integration": "mocha test/integration --exit",
     "release": "release-script",
-    "devserver:deploy": "npm pack | npm install --prefix .dev-server/default"
+    "lint": "eslint"
   },
   "devDependencies": {
     "@alcalzone/release-script": "^1.10.0",
@@ -38,7 +38,8 @@
     "@types/node": "^14.17.4",
     "chai": "^4.3.4",
     "gulp": "^4.0.2",
-    "mocha": "^8.4.0"
+    "mocha": "^8.4.0",
+    "eslint": "^7.28.0"
   },
   "bugs": {
     "url": "https://github.com/t4qjXH8N/ioBroker.google-sharedlocations/issues"
