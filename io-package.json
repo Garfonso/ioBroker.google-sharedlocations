@@ -1,12 +1,24 @@
 {
     "common": {
         "name": "google-sharedlocations",
-        "version": "2.1.4",
+        "version": "2.1.5",
         "license": "MIT",
         "authors": [
             "Christian Vorholt <chvorholt@gmail.com>"
         ],
         "news": {
+            "2.1.5": {
+                "en": "try to handle invalid characters in cookie (Garfonso)",
+                "de": "versuchen, ungültige Zeichen im Cookie zu behandeln (Garfonso)",
+                "ru": "попытаться обработать недопустимые символы в cookie (Гарфонсо)",
+                "pt": "tente lidar com caracteres inválidos no cookie (Garfonso)",
+                "nl": "probeer ongeldige tekens in cookie te verwerken (Garfonso)",
+                "fr": "essayez de gérer les caractères invalides dans le cookie (Garfonso)",
+                "it": "prova a gestire caratteri non validi nel cookie (Garfonso)",
+                "es": "intenta manejar caracteres inválidos en la cookie (Garfonso)",
+                "pl": "spróbuj obsłużyć nieprawidłowe znaki w ciasteczku (Garfonso)",
+                "zh-cn": "尝试处理 cookie 中的无效字符 (Garfonso)"
+            },
             "2.1.4": {
                 "en": "fix location data parsing. (Garfonso)",
                 "de": "Standortdaten-Parsing beheben. (Garfonso)",
