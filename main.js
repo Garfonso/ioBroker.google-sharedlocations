@@ -460,6 +460,18 @@ async function setStateEx(id, common, val, ack) {
   }
 }
 
+const invalidCharTest = new RegExp(/[^\w\d\s=+.;\-_:\/,]/gm);
+function checkCookie(cookie) {
+  invalidCharTest.lastIndex = 0;
+  const matches = invalidCharTest.exec(cookie);
+  if (matches) {
+    adapter.log.warn(`Invalid character in cookie header: ${matches[0]} at ${matches[1]}. Trying replace. Please report if it works or not.`);
+    invalidCharTest.lastIndex = 0;
+    cookie = cookie.replace(invalidCharTest, '');
+  }
+  return cookie;
+}
+
 //improve header from server response:
 function augmentCookie(current, headers) {
   if (headers['set-cookie'] && headers['set-cookie'].length) {
@@ -468,6 +480,7 @@ function augmentCookie(current, headers) {
 
     //split old cookie and new cookie. Update single values.
     for (const header of headers['set-cookie']) {
+      const newCookies = checkCookie(header);
       const incomingCookies = header.split('; ');
       for (const cookie of incomingCookies) {
         const [name, value] = cookie.split('=');
@@ -491,6 +504,7 @@ function augmentCookie(current, headers) {
  */
 async function improveCookie() {
   //see https://github.com/costastf/locationsharinglib/blob/master/locationsharinglib/locationsharinglib.py#L105
+  google_cookie_header = checkCookie(google_cookie_header);
   let options_map = {
     url: "https://myaccount.google.com/?hl=en",
     headers: {
@@ -514,17 +528,10 @@ async function improveCookie() {
   }
 }
 
-const invalidCharTest = new RegExp(/[^\w\d\s=+.;\-_:\/]/gm);
 // query google shared locations
 async function getSharedLocations() {
   //see https://github.com/costastf/locationsharinglib/blob/master/locationsharinglib/locationsharinglib.py#L148
-  invalidCharTest.lastIndex = 0;
-  const matches = invalidCharTest.exec(google_cookie_header);
-  if (matches) {
-    adapter.log.warn(`Invalid character in cookie header: ${matches[0]} at ${matches[1]}. Trying replace. Please report if it works or not.`);
-    invalidCharTest.lastIndex = 0;
-    google_cookie_header = google_cookie_header.replace(invalidCharTest, '');
-  }
+  google_cookie_header = checkCookie(google_cookie_header);
 
   let options_map = {
     url: "https://www.google.com/maps/rpc/locationsharing/read",
