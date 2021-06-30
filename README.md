@@ -58,6 +58,9 @@ If this project helped you to reduce developing time, you can give me a cup of c
 	### __WORK IN PROGRESS__
 	npm install @alcalzone/release-script
 -->
+### __WORK IN PROGRESS__
+- try to handle invalid characters in cookie (Garfonso)
+
 ### 2.1.4 (2021-06-29)
 - fix location data parsing. (Garfonso)
 

@@ -514,9 +514,18 @@ async function improveCookie() {
   }
 }
 
+const invalidCharTest = new RegExp(/[^\w\d\s=+.;\-_:\/]/gm);
 // query google shared locations
 async function getSharedLocations() {
   //see https://github.com/costastf/locationsharinglib/blob/master/locationsharinglib/locationsharinglib.py#L148
+  invalidCharTest.lastIndex = 0;
+  const matches = invalidCharTest.exec(google_cookie_header);
+  if (matches) {
+    adapter.log.warn(`Invalid character in cookie header: ${matches[0]} at ${matches[1]}. Trying replace. Please report if it works or not.`);
+    invalidCharTest.lastIndex = 0;
+    google_cookie_header = google_cookie_header.replace(invalidCharTest, '');
+  }
+
   let options_map = {
     url: "https://www.google.com/maps/rpc/locationsharing/read",
     headers: {
