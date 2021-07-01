@@ -101,7 +101,7 @@ adapter.on('message', async function (obj) {
       case 'checkConnection': {
         const cookie = obj.message.cookie;
         if (cookie) {
-          google_cookie_header = cookie;
+          google_cookie_header = checkCookie(cookie.replace('Cookie: ', ''));
         }
 
         try {
@@ -120,7 +120,7 @@ adapter.on('message', async function (obj) {
       case 'getUsers': {
         const cookie = obj.message.cookie;
         if (cookie) {
-          google_cookie_header = cookie;
+          google_cookie_header = checkCookie(cookie.replace('Cookie: ', ''));
         }
 
         await querySharedLocations();
@@ -248,7 +248,7 @@ async function main() {
   }
 
   if(adapter.config.google_cookie) {
-    google_cookie_header = adapter.config.google_cookie.replace('Cookie: ', '');
+    google_cookie_header = checkCookie(adapter.config.google_cookie.replace('Cookie: ', ''));
     poll(true);
   } else {
     adapter.log.warn('No cookie. Please set cookie in config.');
@@ -465,7 +465,7 @@ function checkCookie(cookie) {
   invalidCharTest.lastIndex = 0;
   const matches = invalidCharTest.exec(cookie);
   if (matches) {
-    adapter.log.warn(`Invalid character in cookie header: ${matches[0]} at ${matches[1]}. Trying replace. Please report if it works or not.`);
+    adapter.log.warn(`Invalid character in cookie header: ${matches[0]} at ${matches[1]}. Did you copy the full cookie correctly?`);
     invalidCharTest.lastIndex = 0;
     cookie = cookie.replace(invalidCharTest, '');
   }
@@ -480,7 +480,7 @@ function augmentCookie(current, headers) {
 
     //split old cookie and new cookie. Update single values.
     for (const header of headers['set-cookie']) {
-      const newCookies = checkCookie(header);
+      const newCookies = header;
       const incomingCookies = header.split('; ');
       for (const cookie of incomingCookies) {
         const [name, value] = cookie.split('=');
@@ -504,7 +504,6 @@ function augmentCookie(current, headers) {
  */
 async function improveCookie() {
   //see https://github.com/costastf/locationsharinglib/blob/master/locationsharinglib/locationsharinglib.py#L105
-  google_cookie_header = checkCookie(google_cookie_header);
   let options_map = {
     url: "https://myaccount.google.com/?hl=en",
     headers: {
@@ -531,7 +530,6 @@ async function improveCookie() {
 // query google shared locations
 async function getSharedLocations() {
   //see https://github.com/costastf/locationsharinglib/blob/master/locationsharinglib/locationsharinglib.py#L148
-  google_cookie_header = checkCookie(google_cookie_header);
 
   let options_map = {
     url: "https://www.google.com/maps/rpc/locationsharing/read",
