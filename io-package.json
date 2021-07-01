@@ -1,12 +1,24 @@
 {
     "common": {
         "name": "google-sharedlocations",
-        "version": "2.1.5",
+        "version": "2.1.6",
         "license": "MIT",
         "authors": [
             "Christian Vorholt <chvorholt@gmail.com>"
         ],
         "news": {
+            "2.1.6": {
+                "en": "move character replacing to initialisation. Should warn only once. (Garfonso)",
+                "de": "Verschieben Sie das Ersetzen von Zeichen in die Initialisierung. Sollte nur einmal warnen. (Garfonso)",
+                "ru": "переместить замену символа на инициализацию. Предупредить следует только один раз. (Гарфонсо)",
+                "pt": "mova o caractere substituindo para a inicialização. Deve avisar apenas uma vez. (Garfonso)",
+                "nl": "verplaats karakter vervangen naar initialisatie. Moet slechts één keer waarschuwen. (Garfonso)",
+                "fr": "déplacer le caractère remplaçant à l'initialisation. Ne devrait avertir qu'une seule fois. (Garfonso)",
+                "it": "sposta il carattere che sostituisce l'inizializzazione. Dovrebbe avvisare solo una volta. (Garfonso)",
+                "es": "mueva la sustitución de caracteres a la inicialización. Debería advertir solo una vez. (Garfonso)",
+                "pl": "przenieś zastępowanie znaków do inicjalizacji. Powinien ostrzec tylko raz. (Garfons)",
+                "zh-cn": "将字符替换移动到初始化。应该只警告一次。 （加方索）"
+            },
             "2.1.5": {
                 "en": "try to handle invalid characters in cookie (Garfonso)",
                 "de": "versuchen, ungültige Zeichen im Cookie zu behandeln (Garfonso)",

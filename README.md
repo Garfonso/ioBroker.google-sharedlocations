@@ -58,7 +58,7 @@ If this project helped you to reduce developing time, you can give me a cup of c
 	### __WORK IN PROGRESS__
 	npm install @alcalzone/release-script
 -->
-### **WORK IN PROGRESS**
+### 2.1.6 (2021-07-01)
 - move character replacing to initialisation. Should warn only once. (Garfonso)
 
 ### 2.1.5 (2021-06-30)
